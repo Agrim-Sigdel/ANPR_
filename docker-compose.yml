@@ -1,7 +1,4 @@
-version: '3.8'
-
 services:
-  # MongoDB Database
   mongodb:
     image: mongo:7.0
     container_name: anpr_mongodb
@@ -14,14 +11,15 @@ services:
       MONGO_INITDB_DATABASE: anpr_db
     volumes:
       - mongodb_data:/data/db
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - anpr_network
 
-  # FastAPI Backend
   backend:
+    env_file:
+      - .env
+    image: anpr_backend:latest
     build:
-      context: ./anpr-backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: anpr_backend
     restart: unless-stopped
@@ -34,7 +32,7 @@ services:
       - PORT=8000
       - DEBUG=False
     volumes:
-      - ./anpr-backend/models:/app/models:ro
+      - ./backend/models:/app/models:ro
       - backend_results:/app/results
       - backend_temp:/app/temp
     depends_on:
@@ -42,10 +40,11 @@ services:
     networks:
       - anpr_network
 
-  # React Frontend
   frontend:
+    platform: linux/amd64
+    image: anpr_frontend:latest
     build:
-      context: ./anpr-frontend/ANPR
+      context: ./frontend/ANPR
       dockerfile: Dockerfile
     container_name: anpr_frontend
     restart: unless-stopped

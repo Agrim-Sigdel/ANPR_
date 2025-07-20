@@ -35,7 +35,7 @@ echo "✅ MongoDB service started."
 echo "[2/3] Starting Backend server in a new tab..."
 osascript <<EOD
 tell application "Terminal"
-    do script "cd '$(pwd)/anpr-backend' && source venv/bin/activate && echo '✅ Backend environment activated.' && uvicorn app:app --reload"
+    do script "cd '$(pwd)/anpr-backend' && source ../venv/bin/activate && echo '✅ Backend environment activated.' && uvicorn app:app --reload"
 end tell
 EOD
 
