@@ -13,7 +13,7 @@ A comprehensive Automatic Number Plate Recognition (ANPR) system with advanced A
 - 🔍 **Advanced Detection**: YOLOv8-based license plate detection with high accuracy
 - 📸 **Image Processing**: Single image analysis with multi-plate detection
 - 🎥 **Video Processing**: Multi-vehicle tracking with best frame selection
-- 🤖 **Dual OCR**: Local YOLO OCR + Roboflow cloud OCR support
+- 🤖 **Dual OCR**: Local YOLO OCR + Roboflow Custom trained RF-DETR support
 - 📊 **Real-time Analytics**: Live dashboard with performance metrics
 - 🎨 **Modern UI**: Glassmorphic design with dark/light theme
 - 📱 **Responsive**: Mobile-first responsive design
@@ -32,7 +32,7 @@ A comprehensive Automatic Number Plate Recognition (ANPR) system with advanced A
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ANPR_.git
+git clone https://github.com/Agrim-Sigdel/ANPR_.git
 cd ANPR_
 
 # Make the startup script executable and run
@@ -52,7 +52,7 @@ This will automatically:
 #### Backend Setup
 
 ```bash
-cd anpr-backend
+cd backend
 
 # Create virtual environment
 python -m venv venv
@@ -71,7 +71,7 @@ uvicorn app:app --reload
 #### Frontend Setup
 
 ```bash
-cd anpr-frontend/ANPR
+cd frontend/ANPR
 
 # Install dependencies
 npm install
@@ -125,13 +125,13 @@ npm run dev
 
 ### Environment Variables
 
-Create a `.env` file in the `anpr-backend` directory:
+Create a `.env` file in the `backend` directory:
 
 ```bash
 # MongoDB Configuration
 MONGODB_URI=mongodb://localhost:27017/anpr_db
 
-# Roboflow OCR (Optional)
+# Roboflow OCR (Optional)   (Custom trained RF-Detr model)
 ROBOFLOW_API_KEY=your_api_key
 ROBOFLOW_PROJECT=your_project
 ROBOFLOW_VERSION=your_version
@@ -145,7 +145,7 @@ DEBUG=True
 
 ### Model Files
 
-Ensure the following model files are present in `anpr-backend/models/`:
+Ensure the following model files are present in `backend/models/`:
 
 - `license_plate_detector.pt` - License plate detection model
 - `character_detector.pt` - Character recognition model
@@ -166,15 +166,15 @@ Ensure the following model files are present in `anpr-backend/models/`:
 
 ```
 ANPR_/
-├── anpr-backend/           # FastAPI backend
+├── backend/           # FastAPI backend
 │   ├── app.py             # Main application
 │   ├── image_ocr.py       # Image processing
 │   ├── video_ocr.py       # Video processing
-│   ├── roboflow_ocr.py    # Cloud OCR integration
+│   ├── roboflow_ocr.py    # Custom trained RF-DETR integration
 │   ├── models/            # AI model files
 │   ├── results/           # Generated results
 │   └── requirements.txt   # Python dependencies
-├── anpr-frontend/         # React frontend
+├── frontend/         # React frontend
 │   └── ANPR/
 │       ├── src/
 │       │   ├── pages/     # Main components
@@ -190,11 +190,11 @@ ANPR_/
 
 ```bash
 # Backend tests
-cd anpr-backend
+cd backend
 python -m pytest
 
 # Frontend tests
-cd anpr-frontend/ANPR
+cd frontend/ANPR
 npm test
 ```
 
@@ -255,7 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [Ultralytics](https://ultralytics.com/) for YOLOv8
-- [Roboflow](https://roboflow.com/) for cloud OCR
+- [Roboflow](https://roboflow.com/) for Custom trained RF-DETR
 - [FastAPI](https://fastapi.tiangolo.com/) for the backend framework
 - [React](https://reactjs.org/) for the frontend framework
 - [Tailwind CSS](https://tailwindcss.com/) for styling
@@ -263,22 +263,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - 📧 Email: support@anpr-system.com
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/ANPR_/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/Agrim-Sigdel/ANPR_/issues)
 - 📖 Documentation: [Full Documentation](DOCUMENTATION.md)
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by the ANPR Team</p>
+  <p>Made with ❤️</p>
   <p>
-    <a href="https://github.com/yourusername/ANPR_/stargazers">
-      <img src="https://img.shields.io/github/stars/yourusername/ANPR_" alt="Stars">
+    <a href="https://github.com/Agrim-Sigdel/ANPR_/stargazers">
+      <img src="https://img.shields.io/github/stars/Agrim-Sigdel/ANPR_" alt="Stars">
     </a>
-    <a href="https://github.com/yourusername/ANPR_/network">
-      <img src="https://img.shields.io/github/forks/yourusername/ANPR_" alt="Forks">
+    <a href="https://github.com/Agrim-Sigdel/ANPR_/network">
+      <img src="https://img.shields.io/github/forks/Agrim-Sigdel/ANPR_" alt="Forks">
     </a>
-    <a href="https://github.com/yourusername/ANPR_/issues">
-      <img src="https://img.shields.io/github/issues/yourusername/ANPR_" alt="Issues">
+    <a href="https://github.com/Agrim-Sigdel/ANPR_/issues">
+      <img src="https://img.shields.io/github/issues/Agrim-Sigdel/ANPR_" alt="Issues">
     </a>
   </p>
 </div>
